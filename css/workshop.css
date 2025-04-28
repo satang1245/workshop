@@ -27,7 +27,10 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 	100% {background-position: 0 50%;font-weight: 900;}
 }
 #main {margin-top: 60px;}
-#mapArea {margin-top: 60px;color: #fff;}
+#mapArea {margin-top: 60px;color: #fff;
+	content-visibility: auto;
+	contain-intrinsic-size: 100px 400px;
+}
 #mapArea p {margin-top: 8px;margin-bottom: 25px;color: #fff;}
 #map {height: 680px;}
 #map img[role="presentation"] {border-radius: 50%; border:4px solid #fff;}
@@ -59,3 +62,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 	0%, 100% {transform: translateY(0px)}
 	50% {transform: translateY(20px)}
 }
+
+
+/* plugins */
+.lg-outer .lg-video-cont {height: 100%;}

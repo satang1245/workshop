@@ -30,6 +30,14 @@ const $images = [
 		subHtml: '',
 	},
 	{
+		src: './images/IMG_3450.jpeg',
+		thumb: './images/IMG_3450.jpeg',
+		poster: './images/IMG_3450.jpeg',
+		html: '#video1',
+		subHtml: '',
+	},
+	
+	{
 		src: './images/IMG_3435.jpg',
 		thumb: './images/IMG_3435.jpg',
 		subHtml: '',
@@ -107,18 +115,22 @@ function setImageMaker() {
 	const exifLat = EXIF.getTag(this, "GPSLatitude");
 	const exifLongRef = EXIF.getTag(this, "GPSLongitudeRef");
 	const exifLatRef = EXIF.getTag(this, "GPSLatitudeRef");
+	let latitude, longitude;
 	
+	if ( !exifLat || !exifLong ) {
+		return false;
+	}
 
 	if (exifLatRef == "S") {
-		var latitude = (exifLat[0]*-1) + (( (exifLat[1]*-60) + (exifLat[2]*-1) ) / 3600);						
+		latitude = (exifLat[0]*-1) + (( (exifLat[1]*-60) + (exifLat[2]*-1) ) / 3600);						
 	} else {
-		var latitude = exifLat[0] + (( (exifLat[1]*60) + exifLat[2] ) / 3600);
+		latitude = exifLat[0] + (( (exifLat[1]*60) + exifLat[2] ) / 3600);
 	}
 
 	if (exifLongRef == "W") {
-		var longitude = (exifLong[0]*-1) + (( (exifLong[1]*-60) + (exifLong[2]*-1) ) / 3600);						
+		longitude = (exifLong[0]*-1) + (( (exifLong[1]*-60) + (exifLong[2]*-1) ) / 3600);						
 	} else {
-		var longitude = exifLong[0] + (( (exifLong[1]*60) + exifLong[2] ) / 3600);
+		longitude = exifLong[0] + (( (exifLong[1]*60) + exifLong[2] ) / 3600);
 	}
 
 	const imageSrc = this.getAttribute('src');
@@ -186,12 +198,15 @@ function drawImage() {
 
 for (let i = 0; i < $images.length; i+=1) {
 	const $o = new Image();
-	$o.src = $images[i].src;
+	$o.src = $images[i].src || $images[i].poster;
+	if ( $images[i].poster ) $o.video = true;
 	$o.index = i;
 	$o.addEventListener('load', drawImage);
 }
 $photos = lightGallery($ul, {
-	plugins: [lgZoom, lgThumbnail],
+	// lgZoom, 
+	plugins: [lgThumbnail, lgVideo],
+	videojs: true,
 	licensekey: '0000-0000-000-0000',
 	dynamic: true, dynamicEl: $images
 });
