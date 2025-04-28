@@ -9,10 +9,7 @@
 html, body {background-color: #222;}
 html.lock, html.lock body {height:100%; overflow: hidden;}
 #wrap {max-width: 1280px;margin: 0 auto;}
-@media screen and (max-width:768px) {
-	#wrap{padding:0 15px;}
-	#photos li.photo-item .text {font-size: 14px;}
-}
+
 
 #wrap img {display:block;}
 
@@ -33,6 +30,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 }
 #mapArea p {margin-top: 8px;margin-bottom: 25px;color: #fff;}
 #map {height: 680px;}
+
 #map img[role="presentation"] {border-radius: 50%; border:4px solid #fff;}
 
 #photos > ul {display: flex; gap: 15px; flex-wrap: wrap; list-style: none;}
@@ -66,3 +64,9 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 
 /* plugins */
 .lg-outer .lg-video-cont {height: 100%;}
+
+@media screen and (max-width:768px) {
+	#wrap{padding:0 15px;}
+	#photos li.photo-item .text {font-size: 14px;}
+	#map {height: 340px;}
+}
