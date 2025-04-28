@@ -29,7 +29,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 	contain-intrinsic-size: 100px 400px;
 }
 #mapArea p {margin-top: 8px;margin-bottom: 25px;color: #fff;}
-#map {height: 680px;}
+#map {height: 680px; border-radius: 24px; overflow: hidden;}
 
 #map img[role="presentation"] {border-radius: 50%; border:4px solid #fff;}
 
@@ -43,7 +43,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 #photos li.photo-item.wide {flex: 1 0 calc(66% - 7.5px);width: calc(66% - 7.5px);}
 #photos li.photo-item > img {width: 100%;filter: grayscale(100%);}
 #photos li.photo-item > img:first-child {position:absolute;top:0;left:0;z-index:1;opacity:0;transition:opacity .5s ease-out;filter: none}
-#photos li.photo-item:hover > img {filter: none}
+#photos li.photo-item:hover > img {filter: none; transform:scale(1.12); transition:transform 20s ease-out}
 #photos li.photo-item:hover > img:first-child {opacity:1}
 
 #footer {margin-top: 45px; padding-bottom: 50px; font-size: 11px; color:#fff;}
