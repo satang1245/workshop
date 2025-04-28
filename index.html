@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>가자 한양으로!!</title>
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=97f668368a64382fd36ca8402b29eaf1"></script>
 	<script src="//cdn.jsdelivr.net/npm/exif-js"></script>
 	<script src="./vendors/lightgallery/2.8.3/lightgallery.min.js"></script>
@@ -13,18 +14,22 @@
 	<link type="text/css" rel="stylesheet" href="./vendors/lightgallery/2.8.3/css/lightgallery-bundle.css" />
 	<link type="text/css" rel="stylesheet" href="./css/workshop.css">
 </head>
+
 <body>
+	<div id="loading">
+		<img src="./images/logo.png" width="100px" alt="">
+		<div class="dimd"></div>
+	</div>
 	<div id="wrap">
 		<header id="header">
-			<h1 id="logo">🚐</h1>
-			<p class="desc">가자 한양으로!</p>
+			<img src="./images/logo.png" width="100px" alt="">
 		</header>
 		<main id="main">
 			<section id="photos">
 				<ul></ul>
 			</section>
 			<div id="mapArea">
-				<h2>베이스캠프</h2>
+				<h2>⛺️ 베이스캠프</h2>
 				<p>서울 용산구 장문로 23, 몬드리안 서울 이태원</p>
 				<div id="map"></div>
 			</div>
@@ -33,7 +38,10 @@
 		<footer id="footer">
 			<p>Copyright &copy Go to Seoul. by Septem family __🐥</p>
 		</footer>
+		<div id="car">🚐</div>
+		<div id="goal">🇰🇷</div>
 	</div>
+	
 	<script src="./workshop.js"></script>
 </body>
 </html>

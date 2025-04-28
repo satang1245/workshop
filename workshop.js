@@ -118,8 +118,8 @@ function setImageMaker() {
 	}
 
 	const imageSrc = this.getAttribute('src');
-	const imageSize = new kakao.maps.Size(64, 64); // 마커이미지의 크기입니다
-	const imageOption = {offset: new kakao.maps.Point(27, 64)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+	const imageSize = new kakao.maps.Size(40, 40); // 마커이미지의 크기입니다
+	const imageOption = {offset: new kakao.maps.Point(27, 40)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 	const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 	const markerPosition  = new kakao.maps.LatLng(latitude, longitude); 
@@ -128,7 +128,7 @@ function setImageMaker() {
 		image: markerImage
 	});
 	const infowindow = new kakao.maps.InfoWindow({
-        content: '<figure><img src="'+imageSrc+'" width="240" /></figure>' // 인포윈도우에 표시할 내용
+        content: '<figure><img src="'+imageSrc+'" width="180" /></figure>' // 인포윈도우에 표시할 내용
 	});
 	
 	marker.uuid = 'uuid-' + imageSrc.split('/').pop().split('.').shift();
@@ -150,6 +150,16 @@ function setImageMaker() {
 	});
 }
 
+
+function goIntro() {
+	document.documentElement.classList.remove('lock');
+	document.getElementById('loading').classList.add('finish');
+	// document.querySelector('#loading > img').style.animation = 'none';
+	// document.querySelector('#loading > img').style.transformDuration = '1.5s';
+	// document.querySelector('#loading > img').style.transform = 'translate(60vh, -60vh) rotate(2000deg)'; 
+	
+}
+
 function drawImage() {
 	const $li = document.createElement('li');
 	const $clone = this.cloneNode(true);
@@ -169,6 +179,7 @@ function drawImage() {
 
 	if (totalImageLength == drawImageCount) {
 		$ul.appendChild($fragment);
+		goIntro();
 	}
 }
 
@@ -184,3 +195,11 @@ $photos = lightGallery($ul, {
 	licensekey: '0000-0000-000-0000',
 	dynamic: true, dynamicEl: $images
 });
+
+const $car = document.querySelector('#car');
+const carMoveHeight = window.innerHeight - 40 - 60; // 위아래 여백 20*2 - 카 사이즈
+
+window.addEventListener('scroll', function () {
+	const contentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+	$car.style.transform  = 'translateY('+ ((window.pageYOffset/contentHeight) * carMoveHeight) +'px) rotate(270deg)';
+})
