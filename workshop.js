@@ -1,77 +1,25 @@
 const $images = [
-	{
-		src: './images/IMG_3402.JPG',
-		thumb: './images/IMG_3402.JPG',
-		subHtml: '',
-	},
-	{
-		src: './images/004.jpeg',
-		thumb: './images/004.jpeg',
-		subHtml: '',
-	},
-	{
-		src: './images/3.jpeg',
-		thumb: './images/3.jpeg',
-		subHtml: '',
-	},
-	{
-		src: './images/4.jpeg',
-		thumb: './images/4.jpeg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3417.JPG',
-		thumb: './images/IMG_3417.JPG',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3433.jpg',
-		thumb: './images/IMG_3433.jpg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3450.jpeg',
-		thumb: './images/IMG_3450.jpeg',
-		poster: './images/IMG_3450.jpeg',
-		html: '#video1',
-		subHtml: '',
-	},
-	
-	{
-		src: './images/IMG_3435.jpg',
-		thumb: './images/IMG_3435.jpg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3436.jpg',
-		thumb: './images/IMG_3436.jpg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3441.jpg',
-		thumb: './images/IMG_3441.jpg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3445.jpg',
-		thumb: './images/IMG_3445.jpg',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3500.JPG',
-		thumb: './images/IMG_3500.JPG',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3505.JPG',
-		thumb: './images/IMG_3505.JPG',
-		subHtml: '',
-	},
-	{
-		src: './images/IMG_3508.JPG',
-		thumb: './images/IMG_3508.JPG',
-		subHtml: '',
-	}
+	{src: './images/img_1.jpg', thumb: './images/img_1_thum.jpg', subHtml: ''},
+	{src: './images/img_2.jpg', thumb: './images/img_2_thum.jpg', subHtml: ''},
+	{src: './images/img_3.jpg', thumb: './images/img_3_thum.jpg', subHtml: ''},
+	{src: './images/img_4.jpg', thumb: './images/img_4_thum.jpg', subHtml: ''},
+	{src: './images/img_5.jpg', thumb: './images/img_5_thum.jpg', subHtml: ''},
+	{src: './images/img_6.jpg', thumb: './images/img_6_thum.jpg', subHtml: ''},
+	{src: './images/img_7.jpg', thumb: './images/img_7_thum.jpg', subHtml: ''},
+	{src: './images/img_8.jpg', thumb: './images/img_8_thum.jpg', subHtml: ''},
+	{src: './images/img_9.jpg', thumb: './images/img_9_thum.jpg', subHtml: ''},
+	{src: './images/img_10.jpg', thumb: './images/img_10_thum.jpg', subHtml: ''},
+	{src: './images/img_11.jpg', thumb: './images/img_11_thum.jpg', subHtml: ''},
+	{src: './images/img_12.jpg', thumb: './images/img_12_thum.jpg', subHtml: ''},
+	{src: './images/img_15.jpg', thumb: './images/img_15_thum.jpg', subHtml: ''},
+	{src: './images/img_13.jpg', thumb: './images/img_13_thum.jpg', subHtml: ''},
+	{src: './images/img_17.jpg', thumb: './images/img_17_thum.jpg', subHtml: ''},
+	{src: './images/img_16.jpg', thumb: './images/img_16_thum.jpg', subHtml: ''},
+	{src: './images/img_18.jpg', thumb: './images/img_18_thum.jpg', subHtml: ''},
+	{src: './images/img_19.jpg', thumb: './images/img_19_thum.jpg', subHtml: ''},
+	{src: './images/img_20.jpg', thumb: './images/img_20_thum.jpg', subHtml: ''},
+	{src: './images/img_21.jpg', thumb: './images/img_21_thum.jpg', subHtml: ''},
+	{src: './images/img_22.jpg', thumb: './images/img_22_thum.jpg', subHtml: ''}
 ];
 
 const container = document.getElementById('map');
@@ -106,7 +54,7 @@ const map = new kakao.maps.Map(container, options);
 
 	// 마커가 지도 위에 표시되도록 설정합니다
 	marker.setMap(map);  
-	marker.setZIndex(10);
+	// marker.setZIndex(10);
 }());
 
 
@@ -134,10 +82,11 @@ function setImageMaker() {
 	}
 
 	const imageSrc = this.getAttribute('src');
+	const imageThumnail = imageSrc.replace('_md.jpg', '_thum.jpg');
 	const imageSize = new kakao.maps.Size(40, 40); // 마커이미지의 크기입니다
 	const imageOption = {offset: new kakao.maps.Point(27, 40)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
-	const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+	const markerImage = new kakao.maps.MarkerImage(imageThumnail, imageSize, imageOption);
 	const markerPosition  = new kakao.maps.LatLng(latitude, longitude); 
 	const marker = new kakao.maps.Marker({
 		position: markerPosition,
@@ -147,7 +96,7 @@ function setImageMaker() {
         content: '<figure><img src="'+imageSrc+'" width="180" /></figure>' // 인포윈도우에 표시할 내용
 	});
 	
-	marker.uuid = 'uuid-' + imageSrc.split('/').pop().split('.').shift();
+	// marker.uuid = 'uuid-' + imageSrc.split('/').pop().split('.').shift();
 	marker.index = num++;
 	marker.setMap(map);
 	
@@ -198,7 +147,8 @@ function drawImage() {
 
 for (let i = 0; i < $images.length; i+=1) {
 	const $o = new Image();
-	$o.src = $images[i].src || $images[i].poster;
+	const _src = $images[i].src.replace('.jpg', '_md.jpg') || $images[i].poster;
+	$o.src = _src;
 	if ( $images[i].poster ) $o.video = true;
 	$o.index = i;
 	$o.addEventListener('load', drawImage);
