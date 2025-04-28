@@ -10,8 +10,13 @@ const $images = [
 		subHtml: '',
 	},
 	{
-		src: './images/IMG_3415.JPG',
-		thumb: './images/IMG_3415.JPG',
+		src: './images/3.jpeg',
+		thumb: './images/3.jpeg',
+		subHtml: '',
+	},
+	{
+		src: './images/4.jpeg',
+		thumb: './images/4.jpeg',
 		subHtml: '',
 	},
 	{
@@ -60,7 +65,6 @@ const $images = [
 		subHtml: '',
 	}
 ];
-const $imageArr = [];
 
 const container = document.getElementById('map');
 const $ul = document.querySelector('#photos > ul');
@@ -154,10 +158,6 @@ function setImageMaker() {
 function goIntro() {
 	document.documentElement.classList.remove('lock');
 	document.getElementById('loading').classList.add('finish');
-	// document.querySelector('#loading > img').style.animation = 'none';
-	// document.querySelector('#loading > img').style.transformDuration = '1.5s';
-	// document.querySelector('#loading > img').style.transform = 'translate(60vh, -60vh) rotate(2000deg)'; 
-	
 }
 
 function drawImage() {

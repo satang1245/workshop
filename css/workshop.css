@@ -4,8 +4,8 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Pretendard';
 }
+* {font-family: 'Pretendard';}
 html, body {background-color: #222;}
 html.lock, html.lock body {height:100%; overflow: hidden;}
 #wrap {max-width: 1280px;margin: 0 auto;}
@@ -33,7 +33,10 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 #map img[role="presentation"] {border-radius: 50%; border:4px solid #fff;}
 
 #photos > ul {display: flex; gap: 15px; flex-wrap: wrap; list-style: none;}
-#photos li.photo-item {position: relative; flex: 1 0 calc(33% - 7.5px);width: calc(33% - 7.5px); cursor: pointer;}
+#photos li.photo-item {position: relative; flex: 1 0 calc(33% - 7.5px);width: calc(33% - 7.5px); cursor: pointer;
+	content-visibility: auto;
+	contain-intrinsic-size: 100px 400px;
+}
 #photos li.photo-item .text {position: absolute;bottom: 0;left: 0;right: 0;padding: 8px;color: #fff;font-size: 18px; font-weight: 400;}
 
 #photos li.photo-item.wide {flex: 1 0 calc(66% - 7.5px);width: calc(66% - 7.5px);}
