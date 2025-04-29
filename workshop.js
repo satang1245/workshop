@@ -117,7 +117,7 @@ function setImageMaker() {
 
 
 function goIntro() {
-	document.querySelector('#loading .car').classList.add('on');
+	// document.querySelector('#loading .car').classList.add('on');
 	setTimeout(function() {
 		document.documentElement.classList.remove('lock');
 		document.getElementById('loading').classList.add('finish');
@@ -144,8 +144,8 @@ function drawImage() {
 
 	drawImageCount++;
 
-	// var v = (drawImageCount/$images.length) * window.innerWidth;
-	// document.querySelector('#loading > .car').style.transform = 'translateX('+ v +'px)';
+	var v = (drawImageCount/$images.length) * window.innerWidth;
+	document.querySelector('#loading > .car').style.transform = 'translateX('+ v +'px)';
 
 	if (totalImageLength == drawImageCount) {
 		$ul.appendChild($fragment);
