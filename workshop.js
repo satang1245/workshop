@@ -4,7 +4,7 @@ const $images = [
 	{src: './images/img_3.jpg', thumb: './images/img_3_thum.jpg', subHtml: ''},
 	{src: './images/img_4.jpg', thumb: './images/img_4_thum.jpg', subHtml: ''},
 	{src: './images/img_5.jpg', thumb: './images/img_5_thum.jpg', subHtml: ''},
-	{src: './images/img_6.jpg', thumb: './images/img_6_thum.jpg', subHtml: ''},
+	// {src: './images/img_6.jpg', thumb: './images/img_6_thum.jpg', subHtml: ''},
 	{src: './images/img_7.jpg', thumb: './images/img_7_thum.jpg', subHtml: ''},
 	{src: './images/img_8.jpg', thumb: './images/img_8_thum.jpg', subHtml: ''},
 	{src: './images/img_9.jpg', thumb: './images/img_9_thum.jpg', subHtml: ''},
@@ -32,8 +32,8 @@ let drawImageCount = 0,
 
 const basecampPosition = {Ma:37.528551, La:126.993087};
 const options = {
-	center: new kakao.maps.LatLng(basecampPosition.Ma, basecampPosition.La),
-	level: 5
+	center: new kakao.maps.LatLng(37.532380, 126.993324),
+	level: 4
 };
 
 const map = new kakao.maps.Map(container, options);
@@ -97,7 +97,7 @@ function setImageMaker() {
 	});
 	
 	// marker.uuid = 'uuid-' + imageSrc.split('/').pop().split('.').shift();
-	marker.index = num++;
+	marker.index = this.index;
 	marker.setMap(map);
 	
 	kakao.maps.event.addListener(marker, 'mouseover', function() {
@@ -113,6 +113,10 @@ function setImageMaker() {
 	kakao.maps.event.addListener(marker, 'click', function() {
 		$photos.openGallery(marker.index);
 	});
+	// kakao.maps.event.addListener(map, 'click', function(e) {
+	// 	var latlng = e.latLng;
+	// 	console.log(latlng);
+	// });
 }
 
 
