@@ -38,6 +38,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 	content-visibility: auto;
 	contain-intrinsic-size: 100px 400px;
 }
+#photos li.photo-item svg {width: 20%;min-width:60px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color:#ddd;z-index: 10;}
 #photos li.photo-item .text {position: absolute;bottom: 0;left: 0;right: 0;padding: 8px;color: #fff;font-size: 18px; font-weight: 400;}
 
 #photos li.photo-item.wide {flex: 1 0 calc(66% - 7.5px);width: calc(66% - 7.5px);}

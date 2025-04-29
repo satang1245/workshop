@@ -1,6 +1,7 @@
 const $images = [
 	{src: './images/img_1.jpg', thumb: './images/img_1_thum.jpg', subHtml: ''},
 	{src: './images/img_2.jpg', thumb: './images/img_2_thum.jpg', subHtml: ''},
+	{video: {source: [{ src: './videos/IMG_3450.mp4',type: 'video/mp4' }]}, poster: './images/img_13.jpg', thumb: './images/img_2_thum.jpg', subHtml: ''},
 	{src: './images/img_3.jpg', thumb: './images/img_3_thum.jpg', subHtml: ''},
 	{src: './images/img_4.jpg', thumb: './images/img_4_thum.jpg', subHtml: ''},
 	{src: './images/img_5.jpg', thumb: './images/img_5_thum.jpg', subHtml: ''},
@@ -12,7 +13,7 @@ const $images = [
 	{src: './images/img_11.jpg', thumb: './images/img_11_thum.jpg', subHtml: ''},
 	{src: './images/img_12.jpg', thumb: './images/img_12_thum.jpg', subHtml: ''},
 	{src: './images/img_15.jpg', thumb: './images/img_15_thum.jpg', subHtml: ''},
-	{src: './images/img_13.jpg', thumb: './images/img_13_thum.jpg', subHtml: ''},
+	// {src: './images/img_13.jpg', thumb: './images/img_13_thum.jpg', subHtml: ''},
 	{src: './images/img_17.jpg', thumb: './images/img_17_thum.jpg', subHtml: ''},
 	{src: './images/img_16.jpg', thumb: './images/img_16_thum.jpg', subHtml: ''},
 	{src: './images/img_18.jpg', thumb: './images/img_18_thum.jpg', subHtml: ''},
@@ -138,6 +139,10 @@ function drawImage() {
 	$li.appendChild($clone);
 	$li.classList.add('photo-item');
 	$li.classList.toggle('wide', this.width > this.height);
+	// $li.classList.toggle('video', this.video);
+	if ( this.video ) {
+		$li.innerHTML += '<svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"><path d="m11.97 22c5.5228 0 10-4.4772 10-10 0-5.52285-4.4772-10-10-10-5.52288 0-10.00003 4.47715-10.00003 10 0 5.5228 4.47715 10 10.00003 10z"/><path d="m8.73999 12.2299v-1.67c0-2.08002 1.47001-2.93002 3.27001-1.89002l1.45.84 1.45.84002c1.8 1.04 1.8 2.74 0 3.78l-1.45.84-1.45.84c-1.8 1.04-3.27001.19-3.27001-1.89z" stroke-miterlimit="6"/></g></svg>';
+	}
 	$li.order = $li.style.order = this.index;
 	$li.addEventListener('click', function () {
 		$photos.openGallery(this.order);
@@ -160,7 +165,7 @@ function drawImage() {
 
 for (let i = 0; i < $images.length; i+=1) {
 	const $o = new Image();
-	const _src = $images[i].src.replace('.jpg', '_md.jpg') || $images[i].poster;
+	const _src = $images[i].poster?.replace('.jpg', '_md.jpg') || $images[i].src.replace('.jpg', '_md.jpg');
 	$o.src = _src;
 	if ( $images[i].poster ) $o.video = true;
 	$o.index = i;
