@@ -14,7 +14,7 @@ html.lock, html.lock body {height:100%; overflow: hidden;}
 #wrap img {display:block;}
 
 #header {text-align: center;padding: 35px 0;}
-#logo {position: relative; background: url('../images/img_logo_2.png') 0 0/100% auto no-repeat; width: 200px; height: 141px;}
+#logo {position: relative; background: url('../images/img_logo_3.png') 0 0/100% auto no-repeat; width: 200px; height: 141px;}
 p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shadow: 1px 1px 4px pink;}
 @keyframes changeGradient {
 	0% {background-position: 0 50%;font-weight: 900;}
@@ -78,4 +78,6 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 	#photos li.photo-item .text {font-size: 14px;}
 	#map {height: 340px;}
 	#loading img {width: 120px;margin:-60px 0 0 -60px;}
+	#main {margin-top: 0;}
+	.hero figcaption {font-size: 7.5vw;}
 }
