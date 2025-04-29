@@ -117,8 +117,14 @@ function setImageMaker() {
 
 
 function goIntro() {
-	document.documentElement.classList.remove('lock');
-	document.getElementById('loading').classList.add('finish');
+	document.querySelector('#loading .car').classList.add('on');
+	setTimeout(function() {
+		document.documentElement.classList.remove('lock');
+		document.getElementById('loading').classList.add('finish');
+		setTimeout(function() {
+			document.querySelector('#car').classList.add('on');
+		}, 1000);
+	}, 1800)
 }
 
 function drawImage() {
@@ -137,6 +143,9 @@ function drawImage() {
 	EXIF.getData(this, setImageMaker);
 
 	drawImageCount++;
+
+	// var v = (drawImageCount/$images.length) * window.innerWidth;
+	// document.querySelector('#loading > .car').style.transform = 'translateX('+ v +'px)';
 
 	if (totalImageLength == drawImageCount) {
 		$ul.appendChild($fragment);
