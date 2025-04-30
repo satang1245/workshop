@@ -1,7 +1,26 @@
 const $images = [
 	{src: './images/img_1.jpg', thumb: './images/img_1_thum.jpg', subHtml: ''},
 	{src: './images/img_2.jpg', thumb: './images/img_2_thum.jpg', subHtml: ''},
+	{video: {source: [{ src: './videos/video_img1.mp4',type: 'video/mp4' }]}, poster: './images/video_img1.jpg', thumb: './images/video_img1_thum.jpg', subHtml: ''},
+	{src: './images/image_1.jpg', thumb: './images/image_1_thum.jpg', subHtml: ''},
+	{src: './images/image_2.jpg', thumb: './images/image_2_thum.jpg', subHtml: ''},
+	{src: './images/image_3.jpg', thumb: './images/image_3_thum.jpg', subHtml: ''},
+	{src: './images/image_4.jpg', thumb: './images/image_4_thum.jpg', subHtml: ''},
+	{src: './images/image_6.jpg', thumb: './images/image_6_thum.jpg', subHtml: ''},
+	{src: './images/image_7.jpg', thumb: './images/image_7_thum.jpg', subHtml: ''},
+	{src: './images/image_8.jpg', thumb: './images/image_8_thum.jpg', subHtml: ''},
+	{src: './images/image_10.jpg', thumb: './images/image_10_thum.jpg', subHtml: ''},
+	{src: './images/image_11.jpg', thumb: './images/image_11_thum.jpg', subHtml: ''},
+	{src: './images/image_12.jpg', thumb: './images/image_12_thum.jpg', subHtml: ''},
 	{video: {source: [{ src: './videos/IMG_3450.mp4',type: 'video/mp4' }]}, poster: './images/img_13.jpg', thumb: './images/img_2_thum.jpg', subHtml: ''},
+	{src: './images/image_13.jpg', thumb: './images/image_13_thum.jpg', subHtml: ''},
+	{src: './images/image_14.jpg', thumb: './images/image_14_thum.jpg', subHtml: ''},
+	{src: './images/image_15.jpg', thumb: './images/image_15_thum.jpg', subHtml: ''},
+	{src: './images/image_16.jpg', thumb: './images/image_16_thum.jpg', subHtml: ''},
+	{src: './images/image_17.jpg', thumb: './images/image_17_thum.jpg', subHtml: ''},
+	{src: './images/image_18.jpg', thumb: './images/image_18_thum.jpg', subHtml: ''},
+	{src: './images/image_19.jpg', thumb: './images/image_19_thum.jpg', subHtml: ''},
+	{video: {source: [{ src: './videos/video_img2.mp4',type: 'video/mp4' }]}, poster: './images/video_img2.jpg', thumb: './images/video_img2_thum.jpg', subHtml: ''},
 	{src: './images/img_3.jpg', thumb: './images/img_3_thum.jpg', subHtml: ''},
 	{src: './images/img_4.jpg', thumb: './images/img_4_thum.jpg', subHtml: ''},
 	{src: './images/img_5.jpg', thumb: './images/img_5_thum.jpg', subHtml: ''},
@@ -122,7 +141,7 @@ function setImageMaker() {
 
 
 function goIntro() {
-	// document.querySelector('#loading .car').classList.add('on');
+	document.querySelector('#loading .car').classList.add('on');
 	setTimeout(function() {
 		document.documentElement.classList.remove('lock');
 		document.getElementById('loading').classList.add('finish');
@@ -154,7 +173,7 @@ function drawImage() {
 	drawImageCount++;
 
 	var v = (drawImageCount/$images.length) * window.innerWidth;
-	document.querySelector('#loading > .car').style.transform = 'translateX('+ v +'px)';
+	// document.querySelector('#loading > .car').style.transform = 'translateX('+ v +'px)';
 
 	if (totalImageLength == drawImageCount) {
 		$ul.appendChild($fragment);
@@ -184,5 +203,5 @@ const carMoveHeight = window.innerHeight - 40 - 60; // 위아래 여백 20*2 - �
 
 window.addEventListener('scroll', function () {
 	const contentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
-	$car.style.transform  = 'translateY('+  +'px) rotate(270deg)';
+	$car.style.transform  = 'translateY('+ ((window.pageYOffset/contentHeight) * carMoveHeight) +'px) rotate(270deg)';
 })
