@@ -148,7 +148,7 @@ function goIntro() {
 		setTimeout(function() {
 			document.querySelector('#car').classList.add('on');
 		}, 1000);
-	}, 1800)
+	}, 2400)
 }
 
 function drawImage() {

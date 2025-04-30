@@ -55,7 +55,7 @@ p.desc {color:#666; font-weight: 300;font-size: 48px; margin-top: 10px;text-shad
 
 #loading {position: fixed;top:0;left:0;right:0;bottom:0;z-index:1000;}
 #loading .car {position: absolute; top: 20px; left: 20px; font-size: 24px;
-	transition: transform .45s ease;
+	transition: transform 2s ease;
 	 /* transition: transform 1.75s cubic-bezier(0.59, -0.1, 1, 1);  */
 }
 #loading .car.on {transform: translateX(120vw); }
