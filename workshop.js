@@ -39,7 +39,14 @@ const $images = [
 	{src: './images/img_19.jpg', thumb: './images/img_19_thum.jpg', subHtml: ''},
 	{src: './images/img_20.jpg', thumb: './images/img_20_thum.jpg', subHtml: ''},
 	{src: './images/img_21.jpg', thumb: './images/img_21_thum.jpg', subHtml: ''},
-	{src: './images/img_22.jpg', thumb: './images/img_22_thum.jpg', subHtml: ''}
+	{src: './images/img_22.jpg', thumb: './images/img_22_thum.jpg', subHtml: ''},
+	{src: './images/img_23.jpg', thumb: './images/img_23_thum.jpg', subHtml: ''},
+	{src: './images/img_24.jpg', thumb: './images/img_24_thum.jpg', subHtml: ''},
+	{src: './images/img_25.jpg', thumb: './images/img_25_thum.jpg', subHtml: ''},
+	{src: './images/img_26.jpg', thumb: './images/img_26_thum.jpg', subHtml: ''},
+	{src: './images/img_27.jpg', thumb: './images/img_27_thum.jpg', subHtml: ''},
+	{src: './images/img_28.jpg', thumb: './images/img_28_thum.jpg', subHtml: ''},
+	{src: './images/img_29.jpg', thumb: './images/img_29_thum.jpg', subHtml: ''}
 ];
 
 const container = document.getElementById('map');
