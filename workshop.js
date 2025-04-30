@@ -184,9 +184,5 @@ const carMoveHeight = window.innerHeight - 40 - 60; // 위아래 여백 20*2 - �
 
 window.addEventListener('scroll', function () {
 	const contentHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
-	gsap.to($car, {
-		y: ((window.pageYOffset/contentHeight) * carMoveHeight),
-		rotation: 270
-	});
-	// $car.style.transform  = 'translateY('+  +'px) rotate(270deg)';
+	$car.style.transform  = 'translateY('+  +'px) rotate(270deg)';
 })
